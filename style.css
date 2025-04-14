@@ -1,0 +1,156 @@
+
+* {
+    font-family: helvetica;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+.inputContainer{
+    margin-bottom: 20px;
+}
+input {
+    all: unset;
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 0px solid rgb(208, 208, 208);
+    padding-bottom: 2px;
+    padding-top: 6px;
+    background-color: #ffffff;
+
+    max-width: 200px;
+
+    font-size: 40px;
+    font-weight: 600;
+    color: black;
+}
+
+input:focus {
+    border-bottom:black;
+}
+
+input::placeholder {
+    color: rgb(208, 208, 208);
+}
+
+
+button {
+    margin-top: 16px;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    border: 0px;
+    height: 44px;
+    color: #E6DADA;
+    width: 200px;
+    border-radius: 1000px;
+
+
+    transition: opacity .03s ease-out;
+
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 80%;
+}
+
+button:active {
+    opacity: 50%;
+}
+
+.crContainer {
+    padding: 16px;
+    padding-right: 10px;
+    background-color: #F1F1F1;
+    border-radius: 0px;
+    border: 0px black solid;
+    width:fit-content;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+}
+
+.crPoints {
+    padding: 20px;
+    background-color: rgb(203, 137, 14);
+    border-radius:90px;
+    width:fit-content;
+    height: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    
+    cursor: pointer;
+
+}
+
+.crPoints:hover {
+    background-color: rgb(132, 171, 227); ;
+}
+
+.crListContainer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.landingSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+
+.crEmojiContainer {
+    background: #E6DADA;
+
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    width: 100%;
+
+    position: fixed;
+    top: 30px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.crEmoji {
+    font-size: 28px;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+}
+
+.crEmojiSlc {
+    font-size: 40px;
+}
+
+.crTime {
+    font-size: 13px;
+    font-weight: 300;
+    background: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    border-radius: 0px;
+}
+
+.crPoints {
+    color: white;
+    font-size: 16px;
+    font-weight: 200;
+
+}
