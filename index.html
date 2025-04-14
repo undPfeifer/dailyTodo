@@ -1,0 +1,163 @@
+<!DOCTYPE html> 
+<head>
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    
+    <section id="landingSection" class="landingSection"> 
+
+        <div class="inputContainer"> 
+            <input type="text" placeholder= '🐳' id="inputEmoji" value="🐳">
+
+            <input type="text" placeholder= 'was' id="inputName" value="test">
+            <input type="number" placeholder= 'wielang' id="inputNumber" value="10">
+
+            <input type="number" placeholder="wieviel" id="inputPoints" value="10">
+            <button id="inputSend"> create new item</button>
+
+        </div>
+
+        <div id="crListContainer" class="crListContainer"> </div>
+    </section>
+
+
+    <script>
+        const landingSection= document.getElementById('landingSection');
+        const crListContainer= document.getElementById('crListContainer');
+
+        const inputName= document.getElementById('inputName');
+        const inputPoints= document.getElementById('inputPoints');
+        const inputNumber= document.getElementById('inputNumber');
+
+        const inputEmoji= document.getElementById('inputEmoji');
+
+        const inputSend= document.getElementById('inputSend');
+
+
+
+
+
+        let doArray= [{name: 'shower' , points: '2' , time:'5' , emoji: '🐳'},
+         {name: 'walk 10min' , points: '5' , time:'10' , emoji: '🏃🏻'} ];
+        let goalArray = [];
+
+        let createdElements= [];
+
+
+        inputSend.addEventListener('click' , ()=> {
+            if (inputName.value != '' && inputEmoji.value!='' && inputNumber.value != '' && inputPoints.value!=''){
+            const inputValueObject = {name: inputName.value, points: inputPoints.value, time: inputNumber.value, emoji: inputEmoji.value} ;
+            doArray.push(inputValueObject);
+            console.log(inputValueObject);
+            console.log(doArray);
+            crE();}
+
+                })
+
+
+        function crE () {
+            crListContainer.innerHTML='';
+
+            doArray.sort((a, b) => {
+                return Number(a.time) - Number(b.time)})
+            
+            doArray.forEach(e => {
+            const crContainer = document.createElement('div');
+            crContainer.classList.add('crContainer');
+                crListContainer.appendChild(crContainer);
+
+            const crEmojiSlc = document.createElement('h3');
+            crEmojiSlc.innerText=e.emoji;
+            crEmojiSlc.classList.add('crEmojiSlc');
+                crContainer.appendChild(crEmojiSlc);
+
+
+            const crName= document.createElement('h3');
+            crName.innerText=e.name;
+                crContainer.appendChild(crName);
+
+            const crTime= document.createElement('h3');
+            crTime.innerText=`${e.time}min`;
+            crTime.classList.add('crTime');
+                crContainer.appendChild(crTime)
+            
+            const crPoints=  document.createElement('h3');
+            crPoints.innerText=e.points;
+            crPoints.classList.add('crPoints');
+                crContainer.appendChild(crPoints);
+
+;
+
+
+            createdElements.push({crContainer, crName, crPoints, crTime, crEmojiSlc});
+            console.log(createdElements);
+            inputEmoji.value='';
+            inputName.value='';
+            inputPoints.value=null;
+            inputNumber.value='';
+
+
+        })
+
+        }
+
+
+    function loadArrayToDOM () {
+        crListContainer.innerHTML='';
+
+        createdElements.forEach(item => {
+        crListContainer.appendChild(item.crContainer)
+    })
+}
+
+
+
+
+loadArrayToDOM();
+crE();
+
+
+
+
+////EMOJI PICKER
+
+const todoAppEmojis = ["✅", "⭐", "🔄", "⏰", "📝", "🏆", "🔔", "📌", "🚩", "❗", "❓", "⚠️", "🔴", "🟠", "🟢", "📅", "⏱️", "📋", "✏️", "🗑️", "📁", "📎", "🔍", "🔒", "👁️", "🔕", "📊", "🔖", "🕒", "📆", "💪", "🏃", "🛌", "🧠", "🛠️", "🔧", "💼", "🏠", "🛒", "💭"];
+
+function crEmojiPicker () {
+    const crEmojiContainer = document.createElement('div');
+        crEmojiContainer.classList.add('crEmojiContainer');
+        crEmojiContainer.id= 'crEmojiContainer';
+        document.body.appendChild(crEmojiContainer);    
+
+    todoAppEmojis.forEach(emoji => {
+        const crEmoji= document.createElement('h4');
+            crEmoji.classList.add('crEmoji');
+            crEmoji.innerText=emoji;
+            crEmojiContainer.appendChild(crEmoji);
+        crEmoji.addEventListener('click' , (item)=> {
+            inputEmoji.value= crEmoji.innerText;
+            console.log(crEmoji.innerText)
+        })
+    })
+}
+
+inputEmoji.addEventListener('focus' , ()=> {
+    crEmojiPicker();
+})
+inputEmoji.addEventListener('blur' , ()=>{
+    setTimeout (() => {
+    const allEmoji = document.getElementById('crEmojiContainer');
+   allEmoji.remove();
+    console.log(allEmoji);} 
+    , 150
+    )
+})
+
+
+</script>
+</body>
+
+
+</html>
