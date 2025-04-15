@@ -1,9 +1,12 @@
-body {
-    font-size:16px;
-}
+
 * {
     font-family: helvetica;
 }
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
 h3 {
     font-size: 20px;
     font-weight: 600;
@@ -62,9 +65,10 @@ button:active {
 
 .crContainer {
     padding: 16px;
-    padding-right: 10px;
+    padding-right: 8px;
+    border-top-right-radius: 30px;
     background-color: #F1F1F1;
-    border-radius: 0px;
+
     border: 0px black solid;
     width:fit-content;
     height: 30px;
@@ -77,11 +81,15 @@ button:active {
 }
 
 .crPoints {
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+
     background-color: rgb(203, 137, 14);
     border-radius:90px;
-    width:fit-content;
-    height: 10px;
+
 
     display: flex;
     align-items: center;
