@@ -1,5 +1,7 @@
 <!DOCTYPE html> 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -36,10 +38,8 @@
         const inputSend= document.getElementById('inputSend');
 
 
-
-
-
-        let doArray= [{name: 'shower' , points: '2' , time:'5' , emoji: '🐳'},
+        // Get tasks from localStorage if they exist, otherwise use default tasks
+        let doArray = JSON.parse(localStorage.getItem('doArray')) || [{name: 'shower' , points: '2' , time:'5' , emoji: '🐳'},
          {name: 'walk 10min' , points: '5' , time:'10' , emoji: '🏃🏻'} ];
         let goalArray = [];
 
@@ -52,6 +52,8 @@
             doArray.push(inputValueObject);
             console.log(inputValueObject);
             console.log(doArray);
+            // Save to localStorage whenever the array changes
+            localStorage.setItem('doArray', JSON.stringify(doArray));
             crE();}
 
                 })
